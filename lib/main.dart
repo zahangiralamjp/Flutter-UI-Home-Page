@@ -6,9 +6,9 @@ main(List<String> args) {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Colors.white),
         elevation: 0.2,
-        color: Colors.white,
+        color: Colors.black,
       )),
       home: FlutterUi(),
     ),
@@ -20,6 +20,7 @@ class FlutterUi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      backgroundColor: Colors.black,
       body: SafeArea(
           child: Container(
         child: Padding(
@@ -29,11 +30,11 @@ class FlutterUi extends StatelessWidget {
             children: [
               Text(
                 'Find your',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               Text(
                 'Inspiration',
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30, color: Colors.white),
               ),
               SizedBox(
                 height: 5,
@@ -42,7 +43,7 @@ class FlutterUi extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.black12,
+                  color: Colors.white,
                 ),
                 child: TextField(
                   decoration: InputDecoration(
@@ -65,7 +66,8 @@ class FlutterUi extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 155,
-                color: Colors.cyan,
+                //   color: Colors.cyan,
+                color: Colors.black12,
                 child: Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: Center(
@@ -76,9 +78,31 @@ class FlutterUi extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           // Text('Hello'),
-                          promoCard('images/abc.jpg'),
+                          promoCard('images/a.jpg'),
+                          promoCard('images/b.jpg'),
+                          promoCard('images/c.jpg'),
+                          promoCard('images/d.jpg'),
+                          promoCard('images/e.jpg'),
+                          promoCard('images/f.jpg'),
                         ],
                       ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 7,
+              ),
+              Container(
+                width: double.infinity,
+                height: 200,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: SizedBox.fromSize(
+                    size: Size.fromRadius(40),
+                    child: Image.asset(
+                      '/images/g.jpg',
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -94,11 +118,13 @@ class FlutterUi extends StatelessWidget {
 
 Widget promoCard(image) {
   return AspectRatio(
-    aspectRatio: 2 / 3,
+    aspectRatio: 2.26 / 3,
     child: Container(
+      margin: EdgeInsets.only(right: 4.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
+            fit: BoxFit.cover,
             image: AssetImage(image),
           )),
     ),
